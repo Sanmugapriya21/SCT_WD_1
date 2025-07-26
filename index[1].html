@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCraft 2025 – Web Wonders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background-color: #0f0f0f; color: white; scroll-behavior: smooth; }
+
+    /* Navbar */
+    .navbar {
+      position: fixed; top: 0; width: 100%; padding: 15px 40px;
+      background: transparent; display: flex; justify-content: space-between;
+      align-items: center; z-index: 999; transition: 0.4s;
+    }
+    .navbar.scrolled { background: #111; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }
+    .logo { font-size: 24px; font-weight: bold; color: #00ffff; }
+    .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: white; }
+    .nav-links { list-style: none; display: flex; gap: 30px; }
+    .nav-links li a {
+      text-decoration: none; color: white; font-weight: 500; transition: 0.3s;
+    }
+    .nav-links li a:hover { color: #00ffff; letter-spacing: 1px; }
+
+    /* Landing Section */
+    .landing-section {
+      min-height: 100vh; background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center; padding: 100px 20px 40px;
+      text-align: center; position: relative;
+    }
+    .landing-section::before {
+      content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 1;
+    }
+    .content {
+      position: relative; z-index: 2; max-width: 700px;
+    }
+    .task-box {
+      display: inline-block; background: #00ffff; color: black; font-weight: bold;
+      padding: 8px 16px; border-radius: 30px; margin-bottom: 20px; transition: 0.3s;
+    }
+    .task-box:hover { background-color: #00dddd; transform: scale(1.05); }
+    h1 { font-size: 42px; line-height: 1.3; margin-bottom: 20px; }
+    h1:hover { color: #00ffff; }
+    .description p {
+      font-size: 16px; line-height: 1.6; margin: 10px 0; color: #ccc;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 20px; text-align: center; max-width: 1000px; margin: auto;
+    }
+    .section h2 { color: #00ffff; font-size: 32px; margin-bottom: 20px; }
+    .section p { color: #ccc; font-size: 16px; line-height: 1.7; }
+
+    .features {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;
+    }
+    .feature-box {
+      background: #1a1a1a; padding: 20px; border-radius: 10px; width: 260px;
+      transition: 0.3s; border: 1px solid #00ffff40;
+    }
+    .feature-box:hover { transform: translateY(-10px); border-color: #00ffff; }
+
+    /* CTA Button */
+    .cta-button {
+      display: inline-block; margin-top: 30px; background: #00ffff;
+      color: #000; padding: 12px 28px; border-radius: 30px;
+      text-decoration: none; font-weight: bold; transition: 0.3s;
+    }
+    .cta-button:hover { background: #00dddd; }
+
+    /* Footer */
+    footer {
+      background: #111; color: #aaa; text-align: center;
+      padding: 40px 20px; font-size: 14px;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none; flex-direction: column; position: absolute;
+        top: 60px; right: 40px; background-color: #111;
+        padding: 15px; border-radius: 10px;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li { margin: 10px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Web Wonders</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#features">Explore</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Landing Page -->
+  <section class="landing-section" id="home">
+    <div class="content" data-aos="zoom-in">
+      <div class="task-box">TechCraft 2025</div>
+      <h1>Welcome to Web Wonders</h1>
+      <div class="description">
+        <p>Join us for a creative journey into the world of modern web design and development.</p>
+        <p>Explore ideas. Build projects. Showcase talent.</p>
+      </div>
+      <a href="#contact" class="cta-button">Register Now</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about" data-aos="fade-up">
+    <h2>About the Event</h2>
+    <p>Web Wonders is a virtual event designed to spark creativity, promote collaboration, and celebrate web talent. Whether you're a beginner or a budding developer, you'll get hands-on experience building real-world web pages.</p>
+  </section>
+
+  <!-- Explore Section -->
+  <section class="section" id="features" data-aos="fade-up">
+    <h2>What You’ll Explore</h2>
+    <div class="features">
+      <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+        <h3>HTML & CSS Basics</h3>
+        <p>Learn the building blocks of web design and structure responsive pages.</p>
+      </div>
+      <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+        <h3>JavaScript Magic</h3>
+        <p>Add interactivity and dynamic effects to your landing pages.</p>
+      </div>
+      <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+        <h3>UI Design Tips</h3>
+        <p>Understand color, layout, and visual balance to build beautiful UIs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Registration -->
+  <section class="section" id="contact" data-aos="fade-up">
+    <h2>Get in Touch</h2>
+    <p>Have questions or ready to join? Reach us via email or social media.</p>
+    <a href="mailto:webwonders2025@example.com" class="cta-button">Send Email</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 TechCraft. Designed by Priya.<br>
+    Connect with us on Instagram, LinkedIn, or GitHub.
+  </footer>
+
+  <!-- AOS + JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>
